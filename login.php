@@ -1,20 +1,20 @@
 <?php
-ob_start();
-session_start();
-include('inc/header.php');
-$loginError = '';
-if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
-	include 'Inventory.php';
-	$inventory = new Inventory();
-	$login = $inventory->login($_POST['email'], $_POST['pwd']);
-	if (!empty($login)) {
-		$_SESSION['userid'] = $login[0]['userid'];
-		$_SESSION['name'] = $login[0]['name'];
-		header("Location:index.php");
-	} else {
-		$loginError = "Invalid email or password!";
+	ob_start();
+	session_start();
+	include('inc/header.php');
+	$loginError = '';
+	if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
+		include 'Inventory.php';
+		$inventory = new Inventory();
+		$login = $inventory->login($_POST['email'], $_POST['pwd']);
+		if (!empty($login)) {
+			$_SESSION['userid'] = $login[0]['userid'];
+			$_SESSION['name'] = $login[0]['name'];
+			header("Location:index.php");
+		} else {
+			$loginError = "Correo Electrónico o Contraseña invalido!";
+		}
 	}
-}
 ?>
 <style>
 	html,
@@ -62,6 +62,7 @@ if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
 					<div class="d-grid">
 						<button type="submit" name="login" class="btn btn-primary rounded-0">Acceder</button>
 					</div>
+					<p>¿No tienes cuenta aún? <a href="registration.php">Regístrate acá</a></p>
 				</form>
 			</div>
 		</div>

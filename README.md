@@ -13,4 +13,6 @@
 Más información en el siguiente enlace:
 
 <a href="https://www.configuroweb.com/sistema-basico-de-inventario-en-php-y-mysql/">Sistema Básico de Inventario en PHP y MySQL</a>
+<p>Usuario: hola@configuroweb.com</p>
+<p>Contraseña: 1234abcd..</p>
 

@@ -1,18 +1,21 @@
 <?php
-ob_start();
-session_start();
-include('inc/header.php');
-include 'Inventory.php';
-$inventory = new Inventory();
-$inventory->checkLogin();
+	ob_start();
+	session_start();
+	include('inc/header.php');
+	include 'Inventory.php';
+	$inventory = new Inventory();
+	$inventory->checkLogin();
 ?>
 
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
 <script src="js/category.js"></script>
 <script src="js/common.js"></script>
-<?php include('inc/container.php'); ?>
+<?php 
+	include('inc/container.php'); 
+?>
 <div class="container">
 
 	<?php include("menus.php"); ?>

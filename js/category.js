@@ -61,6 +61,7 @@ $(document).ready(function() {
             }
         })
     });
+    //funcion js para eliminar categoria
     $(document).on('click', '.delete', function() {
         var categoryId = $(this).attr('id');
         var status = $(this).data("status");
@@ -78,5 +79,39 @@ $(document).ready(function() {
         } else {
             return false;
         }
+    });
+    //falta probarlo libreria Swal
+    $(document).on('click', '.btn-delete', function(e) {
+        e.preventDefault();
+        var categoryId = $(this).attr('id');
+        var status = $(this).data("status");
+        var btn_action = 'deleteCategory';
+        swal({
+            title:"¿Está seguro de que desea eliminar esta categoría?",
+            text: "Esta operacion es irreversible",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
+            confirmButtonText: "Eliminar",
+            cancelButtonText: "Cancelar",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+        function(isConfirm){
+            if(isConfirm){
+                $.ajax({
+                    url: "action.php",
+                    method: "POST",
+                    data: { categoryId: categoryId, status: status, btn_action: btn_action },
+                    success: function(data) {
+                        $('#alert_action').fadeIn().html('<div class="alert alert-info">' + data + '</div>');
+                        categoryData.ajax.reload();
+                    }
+                });
+            }
+            return false;
+        });
     });
 });

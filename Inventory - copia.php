@@ -2,9 +2,9 @@
 class Inventory
 {
 	private $host  = 'localhost';
-	private $user  = 'root';
-	private $password   = '';
-	private $database  = 'inventario-basico';
+	private $user  = 'id21390736_root';
+	private $password   = 'T4t02870@';
+	private $database  = 'id21390736_inventario';
 	private $userTable = 'ims_user';
 	private $customerTable = 'ims_customer';
 	private $categoryTable = 'ims_category';
@@ -218,7 +218,6 @@ class Inventory
 			DELETE FROM " . $this->categoryTable . " 
 			WHERE categoryid = '" . $_POST["categoryId"] . "'";
 		mysqli_query($this->dbConnect, $sqlQuery);
-		echo 'Categoria eliminada';
 	}
 	// Brand management 
 	public function getBrandList()
