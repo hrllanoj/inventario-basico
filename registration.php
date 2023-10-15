@@ -3,13 +3,12 @@
 	session_start();
 	include('inc/header.php');
 	$loginError = '';
-//session_start();
-//$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
-//if(!empty($sessData['status']['msg'])){
-//    $statusMsg = $sessData['status']['msg'];
-//    $statusMsgType = $sessData['status']['type'];
-//    unset($_SESSION['sessData']['status']);
-//}
+	$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
+	if(!empty($sessData['status']['msg'])){
+		$statusMsg = $sessData['status']['msg'];
+		$statusMsgType = $sessData['status']['type'];
+		unset($_SESSION['sessData']['status']);
+	}
 ?>
 <?php include('inc/container.php'); ?>
 <!DOCTYPE html>
@@ -73,7 +72,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="password" class="control-label">Confirmar Contraseña:</label>
-							<input type="password" class="form-control rounded-0" id="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
+							<input type="password" class="form-control rounded-0" id="confirm-password" name="confirm_password" placeholder="Confirmar Contraseña" required>
 						</div>
 						<div class="d-grid">
 							<button type="submit" name="login" class="btn btn-primary rounded-0">Crear Cuenta</button>

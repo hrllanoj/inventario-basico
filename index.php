@@ -3,6 +3,12 @@
 	session_start();
 	include('inc/header.php');
 	include 'Inventory.php';
+	$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
+	if(!empty($sessData['status']['msg'])){
+		$statusMsg = $sessData['status']['msg'];
+		$statusMsgType = $sessData['status']['type'];
+		unset($_SESSION['sessData']['status']);
+	}
 	$inventory = new Inventory();
 	$inventory->checkLogin();
 ?>

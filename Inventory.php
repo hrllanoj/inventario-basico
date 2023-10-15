@@ -53,7 +53,7 @@ class Inventory
 	{
 		$password = md5($password);
 		$sqlQuery = "
-			SELECT userid, email, password, name, type, status
+			SELECT userid, email, password, first_name, type, status
 			FROM " . $this->userTable . " 
 			WHERE email='" . $email . "' AND password='" . $password . "'";
 		return  $this->getData($sqlQuery);
@@ -783,5 +783,16 @@ class Inventory
 			"data"    			=> 	$inventoryData
 		);
 		echo json_encode($output);
+
+		
+	}
+	//registrar usuario
+	public function saveUser()
+	{
+		$sqlInsert = "
+			INSERT INTO " . $this->userTable . "(name, address, mobile, balance) 
+			VALUES ('" . $_POST['cname'] . "', '" . $_POST['address'] . "', '" . $_POST['mobile'] . "', '" . $_POST['balance'] . "')";
+		mysqli_query($this->dbConnect, $sqlInsert);
+		echo 'Usuario agregado con éxito';
 	}
 }

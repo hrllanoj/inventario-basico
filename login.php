@@ -62,6 +62,7 @@
 					<div class="d-grid">
 						<button type="submit" name="login" class="btn btn-primary rounded-0">Acceder</button>
 					</div>
+					<p></p>
 					<p>¿No tienes cuenta aún? <a href="registration.php">Regístrate acá</a></p>
 				</form>
 			</div>

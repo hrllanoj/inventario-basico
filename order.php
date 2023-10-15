@@ -1,10 +1,10 @@
 <?php
-ob_start();
-session_start();
-include('inc/header.php');
-include 'Inventory.php';
-$inventory = new Inventory();
-$inventory->checkLogin();
+    ob_start();
+    session_start();
+    include('inc/header.php');
+    include 'Inventory.php';
+    $inventory = new Inventory();
+    $inventory->checkLogin();
 ?>
 
 <script src="js/jquery.dataTables.min.js"></script>
